@@ -33,9 +33,16 @@ def get_discount(bill):
 def get_number(prompt):
     while True:
         try:
-            return float(input(prompt))
+            amount = float(input(prompt))
         except ValueError:
             print("That's not a number. Try again.")
+            continue
+
+        if amount <= 0:
+            print("Please enter a positive number.")
+            continue
+
+        return amount
 
 
 def split_bill(total, n):
